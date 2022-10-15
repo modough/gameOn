@@ -1,0 +1,34 @@
+:root {
+  --font-default: "DM Sans", Arial, Helvetica, sans-serif;
+  --font-slab: var(--font-default);
+  --modal-duration: 0.8s;
+}
+* {
+  font-family: var(--font-default);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.inscription {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1300px;
+  margin: 100px;
+}
+.inscription-msg {
+  color: black;
+  font-size: 50px;
+}
+.return-btn {
+  background-color: #f00;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 25px;
+}

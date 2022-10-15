@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
 }
+
 /* Landing Page */
 
 body {
@@ -40,8 +41,7 @@ img {
 .main-navbar {
   float: right;
 }
-.topnav a,
-.fa-bars {
+.topnav a {
   float: left;
   display: block;
   color: #000000;
@@ -52,7 +52,19 @@ img {
   font-size: 20px;
   font-family: Roboto, sans-serif;
 }
-
+.fa-bars {
+  float: left;
+  display: block;
+  color: #ffffff;
+  background-color: #ff0000;
+  border-radius: 15px;
+  text-align: center;
+  padding: 12px 12px;
+  margin: 5px;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: Roboto, sans-serif;
+}
 .topnav a,
 .fa-bars:hover {
   background-color: #ff0000;
@@ -77,6 +89,7 @@ img {
   .topnav .fa-bars {
     float: right;
     display: block;
+    margin-right: 21px;
   }
 }
 
@@ -85,6 +98,7 @@ img {
     position: absolute;
     right: 0;
     top: 0;
+    margin-right: 5px;
   }
 
   .topnav.responsive a {
@@ -107,7 +121,6 @@ img {
   .topnav .fa-bars {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 }
 
@@ -128,7 +141,7 @@ main {
   background: #fe142f;
   display: flex;
   margin: auto;
-  padding: 2em;
+
   color: #fff;
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
@@ -456,7 +469,7 @@ input[data-error]::after {
 }
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
+
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
