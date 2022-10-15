@@ -9,26 +9,46 @@
   margin: 0;
   padding: 0;
 }
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+
+  font-family: var(--font-default);
+  font-size: 18px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
 a {
   text-decoration: none;
 }
-.inscription {
+
+.header-logo {
+  display: flex;
+  max-width: 100px;
+  max-height: 50px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+img {
+  padding-right: 1rem;
+}
+.message-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 20px;
-  max-width: 1300px;
-  margin: 100px;
+
+  margin: 100px 50px;
 }
 .inscription-msg {
   color: black;
-  font-size: 50px;
+  font-size: 30px;
 }
 .return-btn {
   background-color: #f00;
   color: #ffffff;
   padding: 10px 15px;
   border-radius: 10px;
-  font-size: 25px;
 }
