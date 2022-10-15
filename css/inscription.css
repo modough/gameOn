@@ -27,7 +27,7 @@ a {
   display: flex;
   max-width: 100px;
   max-height: 50px;
-  margin-top: 20px;
+  margin-top: 25px;
   margin-left: 20px;
 }
 img {
@@ -51,4 +51,7 @@ img {
   color: #ffffff;
   padding: 10px 15px;
   border-radius: 10px;
+}
+.return-btn:hover {
+  background: #3876ac;
 }

@@ -8,6 +8,7 @@ export const setErrorMsg = (elmt, errorMessage) => {
   const p = parent.querySelector("p");
   p.textContent = errorMessage;
   p.style.color = "#f00";
+  p.style.fontSize = "20px";
 };
 // valid message function
 export const setValidMsg = (elmt, errorMessage) => {
