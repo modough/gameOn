@@ -76,7 +76,7 @@ export const validate = () => {
   //amount game validity check
   if (quantityInput.value === "") {
     setErrorMsg(quantityInput, "Veuillez entrer le nombre de tournoi !");
-  } else if (!quantityInput.value.trim().match(regexpNumber)) {
+  } else if (isNaN(quantityInput.value)) {
     setErrorMsg(quantityInput, "Vous devez rentrer un nombre !");
   } else {
     setValidMsg(quantityInput, "");

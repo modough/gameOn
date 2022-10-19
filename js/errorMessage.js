@@ -5,10 +5,10 @@ export const setErrorMsg = (elmt, errorMessage) => {
     parent.classList.remove("valid");
   }
   parent.classList.add("error");
-  const p = parent.querySelector("p");
-  p.textContent = errorMessage;
-  p.style.color = "#f00";
-  p.style.fontSize = "20px";
+  const pTag = parent.querySelector("p");
+  pTag.innerText = errorMessage;
+  pTag.style.color = "#f00";
+  pTag.style.fontSize = "20px";
 };
 // valid message function
 export const setValidMsg = (elmt, errorMessage) => {
@@ -17,6 +17,6 @@ export const setValidMsg = (elmt, errorMessage) => {
     parent.classList.remove("error");
   }
   parent.classList.add("valid");
-  const p = parent.querySelector("p");
-  p.textContent = errorMessage;
+  const pTag = parent.querySelector("p");
+  pTag.innerText = errorMessage;
 };

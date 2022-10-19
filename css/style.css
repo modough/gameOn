@@ -82,7 +82,9 @@ img {
 .topnav .fa-bars {
   display: none;
 }
-
+.text-label {
+  margin-left: 7px;
+}
 .copyrights {
   font-size: 20px;
 }
@@ -544,5 +546,11 @@ footer {
   }
   to {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 485px) {
+  .text-label {
+    margin-left: 0;
   }
 }
