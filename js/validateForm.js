@@ -24,6 +24,11 @@ const minDate = new Date(
   today.getMonth(),
   today.getDate()
 );
+const unauthorizedDate = new Date(
+  today.getFullYear() - 100,
+  today.getMonth(),
+  today.getDate()
+);
 // declare a generic function for input validation
 const genericValidate = ({
   input,
@@ -32,7 +37,8 @@ const genericValidate = ({
   nbErr = "Champ trop court",
   regexErr = "Champ incorrect",
   dateErr = "Vous devez avoir plus de 18 ans",
-  checkDate = false,
+  dateUnauth = "Non autorisé !",
+  checkDate = true,
 }) => {
   if (input.value.trim() === "") return setErrorMsg(input, emptyErr);
   if (input.value.trim().length < 2) return setErrorMsg(input, nbErr);
@@ -40,6 +46,9 @@ const genericValidate = ({
     return setErrorMsg(input, regexErr);
   if (checkDate && Date.parse(input.value) > Date.parse(minDate))
     return setErrorMsg(input, dateErr);
+  if (checkDate && Date.parse(input.value) < Date.parse(unauthorizedDate))
+    return setErrorMsg(input, dateUnauth);
+
   return setValidMsg(input, "");
 };
 
@@ -110,9 +119,9 @@ export const validate = () => {
 
   genericValidate({
     input: birthdayInput,
-
-    emptyErr: "Veuillez renseigner votre date!",
+    emptyErr: "Veuillez renseigner votre date de naissance !",
     dateErr: "Vous devez avoir plus de 18 ans",
+    dateUnauth: "Cette date n'est pas autorisée !",
   });
 
   /*if (birthdayInput.value === "") {
