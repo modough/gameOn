@@ -33,11 +33,12 @@ const unauthorizedDate = new Date(
 const genericValidate = ({
   input,
   regex = null,
-  emptyErr = "Champ vide",
-  nbErr = "Champ trop court",
-  regexErr = "Champ incorrect",
-  dateErr = "Vous devez avoir plus de 18 ans",
+  emptyErr = "Champ vide !",
+  nbErr = "Champ trop court !",
+  regexErr = "Champ incorrect !",
+  dateErr = "Vous devez avoir plus de 18 ans !",
   dateUnauth = "Non autorisé !",
+  qtyErr = "Charactéres incorrect !",
   checkDate = true,
 }) => {
   if (input.value.trim() === "") return setErrorMsg(input, emptyErr);
@@ -48,6 +49,7 @@ const genericValidate = ({
     return setErrorMsg(input, dateErr);
   if (checkDate && Date.parse(input.value) < Date.parse(unauthorizedDate))
     return setErrorMsg(input, dateUnauth);
+  if (isNaN(input.value)) return setErrorMsg(input, qtyErr);
 
   return setValidMsg(input, "");
 };
@@ -134,22 +136,30 @@ export const validate = () => {
   }*/
 
   //amount game validity check
-  if (quantityInput.value === "") {
+  genericValidate({
+    input: quantityInput,
+    emptyErr: "Veuillez entrer le nombre de tournoi !",
+    qtyErr: "Vous devez rentre un nombre !",
+    nbErr: null,
+  });
+
+  /*if (quantityInput.value === "") {
     setErrorMsg(quantityInput, "Veuillez entrer le nombre de tournoi !");
   } else if (isNaN(quantityInput.value)) {
     setErrorMsg(quantityInput, "Vous devez rentrer un nombre !");
   } else {
     setValidMsg(quantityInput, "");
-  }
+  }*/
 
   //city validity check
+
   if (
-    radio1.checked === true ||
-    radio2.checked === true ||
-    radio3.checked === true ||
-    radio4.checked === true ||
-    radio5.checked === true ||
-    radio6.checked === true
+    radio1.checked ||
+    radio2.checked ||
+    radio3.checked ||
+    radio4.checked ||
+    radio5.checked ||
+    radio6.checked
   ) {
     setValidMsg(radio1, "");
   } else {
