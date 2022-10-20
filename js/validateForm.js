@@ -30,15 +30,14 @@ const unauthorizedDate = new Date(
   today.getDate()
 );
 // declare a generic function for input validation
-const genericValidate = ({
+/*const genericValidate = ({
   input,
   regex = null,
   emptyErr = "Champ vide !",
   nbErr = "Champ trop court !",
   regexErr = "Champ incorrect !",
-  dateErr = "Vous devez avoir plus de 18 ans !",
-  dateUnauth = "Non autorisé !",
-  qtyErr = "Charactéres incorrect !",
+  err = "Vous devez avoir plus de 18 ans !",
+  dateErr = "date incorrect !",
   checkDate = true,
 }) => {
   if (input.value.trim() === "") return setErrorMsg(input, emptyErr);
@@ -46,26 +45,29 @@ const genericValidate = ({
   if (regex && !input.value.trim().match(regexp))
     return setErrorMsg(input, regexErr);
   if (checkDate && Date.parse(input.value) > Date.parse(minDate))
-    return setErrorMsg(input, dateErr);
+    return setErrorMsg(input, err);
   if (checkDate && Date.parse(input.value) < Date.parse(unauthorizedDate))
-    return setErrorMsg(input, dateUnauth);
-  if (isNaN(input.value)) return setErrorMsg(input, qtyErr);
+    return setErrorMsg(input, dateErr);
+
+  if (!input.checked) return setErrorMsg(input, err);
+
+  if (isNaN(input.value)) return setErrorMsg(input, err);
 
   return setValidMsg(input, "");
-};
+};*/
 
 export const validate = () => {
   //firstname validity check
 
-  genericValidate({
+  /*genericValidate({
     input: firstNameInput,
     regex: regexp,
     emptyErr: "Veuillez renseigner votre prénom !",
     nbErr: "Veuillez entrer plus de 2 caractères pour le champ du prénom",
     regexErr: "Veuillez entrer des lettres",
-  });
+  });*/
 
-  /*if (firstNameInput.value.trim() === "") {
+  if (firstNameInput.value.trim() === "") {
     setErrorMsg(firstNameInput, "Veuillez renseigner votre prénom !");
   } else if (firstNameInput.value.trim().length < 2) {
     setErrorMsg(
@@ -76,18 +78,18 @@ export const validate = () => {
     setErrorMsg(firstNameInput, "Veuillez entrer des lettres");
   } else {
     setValidMsg(firstNameInput, "");
-  }*/
+  }
 
   //lastname validity check
-  genericValidate({
+  /*genericValidate({
     input: lastNameInput,
     regex: regexp,
     emptyErr: "Veuillez renseigner votre nom !",
     nbErr: "Veuillez entrer plus de 2 caractères pour le champ du nom",
     regexErr: "Veuillez entrer des lettres",
-  });
+  });*/
 
-  /*if (lastNameInput.value.trim() === "") {
+  if (lastNameInput.value.trim() === "") {
     setErrorMsg(lastNameInput, "Veuillez renseigner votre prénom !");
   } else if (lastNameInput.value.trim().length < 2) {
     setErrorMsg(
@@ -98,60 +100,64 @@ export const validate = () => {
     setErrorMsg(lastNameInput, "Veuillez entrer des lettres !");
   } else {
     setValidMsg(lastNameInput, "");
-  }*/
+  }
 
   //email validity check
 
-  genericValidate({
+  /*genericValidate({
     input: emailInput,
     regex: emailRgxp,
     emptyErr: "Veuillez renseigner votre email !",
     regexErr: "Veuillez renseigner un email valide !",
-  });
+  });*/
 
-  /*if (emailInput.value.trim() === "") {
+  if (emailInput.value.trim() === "") {
     setErrorMsg(emailInput, "Veuillez renseigner votre email !");
   } else if (!emailInput.value.trim().match(emailRgxp)) {
     setErrorMsg(emailInput, "Veuillez renseigner un email valide !");
   } else {
     setValidMsg(emailInput, "");
-  }*/
+  }
 
   //birthday validity check
 
-  genericValidate({
+  /*genericValidate({
     input: birthdayInput,
     emptyErr: "Veuillez renseigner votre date de naissance !",
-    dateErr: "Vous devez avoir plus de 18 ans",
-    dateUnauth: "Cette date n'est pas autorisée !",
-  });
+    err: "Vous devez avoir plus de 18 ans",
+    dateErr: "Cette date n'est pas autorisée !",
+  });*/
 
-  /*if (birthdayInput.value === "") {
+  if (birthdayInput.value === "") {
     setErrorMsg(birthdayInput, "Vous devez entrer votre date de naissance !");
   } else if (Date.parse(birthdayInput.value) > Date.parse(minDate)) {
-    console.log(minDate);
     setErrorMsg(birthdayInput, "Vous devez avoir plus de 18 ans");
+  } else if (Date.parse(birthdayInput.value) < Date.parse(unauthorizedDate)) {
+    setErrorMsg(birthdayInput, "Cette date n'est pas valide !");
   } else {
     setValidMsg(birthdayInput, "");
-  }*/
+  }
 
   //amount game validity check
-  genericValidate({
+  /*genericValidate({
     input: quantityInput,
     emptyErr: "Veuillez entrer le nombre de tournoi !",
-    qtyErr: "Vous devez rentre un nombre !",
-    nbErr: null,
-  });
+    err: "Vous devez rentre un nombre !",
+  });*/
 
-  /*if (quantityInput.value === "") {
+  if (quantityInput.value === "") {
     setErrorMsg(quantityInput, "Veuillez entrer le nombre de tournoi !");
   } else if (isNaN(quantityInput.value)) {
     setErrorMsg(quantityInput, "Vous devez rentrer un nombre !");
   } else {
     setValidMsg(quantityInput, "");
-  }*/
+  }
 
   //city validity check
+  /*genericValidate({
+    input: radio1,
+    err: "Veuillez choisir une ville !",
+  });*/
 
   if (
     radio1.checked ||
@@ -167,6 +173,12 @@ export const validate = () => {
   }
 
   //agree terms validity check
+
+  /*genericValidate({
+    input: checkbox,
+    err: "Veuillez accepter les conditions !",
+  });*/
+
   if (checkbox.checked) {
     setValidMsg(checkbox, "");
   } else {
