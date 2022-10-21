@@ -29,6 +29,7 @@ const unauthorizedDate = new Date(
   today.getMonth(),
   today.getDate()
 );
+
 // declare a generic function for input validation
 /*const genericValidate = ({
   input,
@@ -130,10 +131,13 @@ export const validate = () => {
 
   if (birthdayInput.value === "") {
     setErrorMsg(birthdayInput, "Vous devez entrer votre date de naissance !");
+  } else if (
+    Date.parse(birthdayInput.value) < Date.parse(unauthorizedDate) ||
+    Date.parse(birthdayInput.value) > Date.parse(today)
+  ) {
+    setErrorMsg(birthdayInput, "Cette date n'est pas valide !");
   } else if (Date.parse(birthdayInput.value) > Date.parse(minDate)) {
     setErrorMsg(birthdayInput, "Vous devez avoir plus de 18 ans");
-  } else if (Date.parse(birthdayInput.value) < Date.parse(unauthorizedDate)) {
-    setErrorMsg(birthdayInput, "Cette date n'est pas valide !");
   } else {
     setValidMsg(birthdayInput, "");
   }
