@@ -153,6 +153,11 @@ export const validate = () => {
     setErrorMsg(quantityInput, "Veuillez entrer le nombre de tournoi !");
   } else if (isNaN(quantityInput.value)) {
     setErrorMsg(quantityInput, "Vous devez rentrer un nombre !");
+  } else if (quantityInput.value < 0 || quantityInput.value > 99) {
+    setErrorMsg(
+      quantityInput,
+      "Ce chiffre doit avoir un valeur entre 0 et 99 !"
+    );
   } else {
     setValidMsg(quantityInput, "");
   }
