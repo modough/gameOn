@@ -1,15 +1,15 @@
-import { editNav } from "./sidebar.js";
+import { sidebar } from "./sidebar.js";
 import { submitForm } from "./submitForm.js";
-
-// show and hide sidebar navigation
-const faBar = document.querySelector(".fa-bars");
-faBar.addEventListener("click", () => {
-  editNav();
-});
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
+
+// show and hide sidebar navigation
+const faBar = document.querySelector(".fa-bars");
+faBar.addEventListener("click", () => {
+  sidebar();
+});
 
 // launch modal function
 const launchModal = () => {

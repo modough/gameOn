@@ -1,5 +1,5 @@
 // sidebar function
-export const editNav = () => {
+export const sidebar = () => {
   const x = document.getElementById("myTopnav");
   x.className === "topnav"
     ? x.classList.add("responsive")
