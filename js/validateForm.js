@@ -1,5 +1,6 @@
 import { setValidMsg, setErrorMsg } from "./errorMessage.js";
 import { setLettersRgxp, setEmailRgxp } from "./regex.js";
+import { today, maxAge, minDate } from "./date.js";
 
 // creating DOM elements
 const firstNameInput = document.getElementById("first");
@@ -9,18 +10,6 @@ const birthdayInput = document.getElementById("birthday");
 const quantityInput = document.getElementById("quantity");
 const radio = document.getElementById("location1");
 const checkbox = document.getElementById("checkbox1");
-
-const today = new Date();
-const minDate = new Date(
-  today.getFullYear() - 18,
-  today.getMonth(),
-  today.getDate()
-);
-const maxAge = new Date(
-  today.getFullYear() - 100,
-  today.getMonth(),
-  today.getDate()
-);
 
 // declare a generic function for most inputs validation
 const genericValidate = ({
