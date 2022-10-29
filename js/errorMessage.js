@@ -20,17 +20,3 @@ export const setValidMsg = (elmt, errorMessage) => {
   const pTag = parent.querySelector("p");
   pTag.innerText = errorMessage;
 };
-
-/*export const setMsg = (elmt, errorMessage, type = "error") => {
-  const parent = elmt.parentElement;
-  const pTag = parent.querySelector("p");
-  if (parent.classList.contains(type)) {
-    parent.classList.remove(type);
-  }
-  parent.classList.add(type === "valid" ? "valid" : "error");
-  pTag.innerText = errorMessage;
-  if (type === "error") {
-    pTag.style.color = "#f00";
-    pTag.style.fontSize = "20px";
-  }
-};*/
